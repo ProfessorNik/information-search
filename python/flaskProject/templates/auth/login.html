@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Вход
+{% endblock %}
+
+{% block content %}
+    <h4>Вход: </h4>
+    <form method='POST'>
+        <label>Имя пользователя: <input name="username"></label>
+        <label>Пароль: <input type="password" name="password"></label>
+        <button type="submit">Войти</button>
+    </form>
+    <p>{{ message }}</p>
+    <a href="/signup"> Регистрация </a>
+    <a href="/"> Главная </a>
+{% endblock %}

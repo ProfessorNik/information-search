@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Добавить университет
+{% endblock %}
+
+{% block content %}
+    <h4>Добавить студента: </h4>
+    <form method='POST'>
+        <label>ФИО:  <input name="name" value="{{form.name}}"></label>
+        <label>Дата рождения: <input type="date" name="birthday" value="{{form.birthday}}"></label>
+        <label>Университет:
+            <select name="university_id">
+                {% for university in universities %}
+                    {% if form.university and university.id == form.university.id %}
+                    <option value="{{ university.id }}" selected>{{ university.short_name }}</option>
+                    {% else %}
+                    <option value="{{ university.id }}">{{ university.short_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </label>
+        <label>Год поступления: <input type="number" name="admission_year" value="{{form.admission_year}}"></label>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="/students"> Таблица студентов </a>
+{% endblock %}

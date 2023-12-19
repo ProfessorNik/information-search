@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Добавить университет
+{% endblock %}
+
+{% block content %}
+    <h4>Добавить студента: </h4>
+    <form method='POST'>
+        {% csrf_token %}
+        <label>ФИО: {{form.name}}</label>
+        <label>Дата рождения: {{form.birthday}}</label>
+        <label>Университет: {{form.university}}</label>
+        <label>Год поступления: {{form.admission_year}}</label>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="/students"> Таблица студентов </a>
+{% endblock %}

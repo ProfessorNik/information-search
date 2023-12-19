@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Университеты
+{% endblock %}
+
+{% block content %}
+    <h4>Студенты: </h4>
+    <table>
+        <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Дата рождения</th>
+            <th>Университет</th>
+            <th>Год поступления</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in table %}
+            <tr>
+                <td>{{ row.name }}</td>
+                <td>{{ row.birthday }}</td>
+                <td>{{ row.university }}</td>
+                <td>{{ row.admission_year }}</td>
+                <td><a href="/students/{{ row.id }}">Редактировать</a> <a
+                        href="/students/{{ row.id }}/delete">Удалить</a>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="/students/new">Добавить студента</a>
+    <a href="/">Список таблиц</a>
+{% endblock %}

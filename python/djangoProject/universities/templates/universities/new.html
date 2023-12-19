@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Добавить университет
+{% endblock %}
+
+{% block content %}
+    <h4>Добавить университет: </h4>
+    <form method='POST'>
+        {% csrf_token %}
+        <label>Полное наименование: {{form.full_name}}</label>
+        <label>Сокращенное наименование: {{form.short_name}}</label>
+        <label>Дата основания: {{form.foundation_date}}</label>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="/universities"> Таблица университетов </a>
+{% endblock %}

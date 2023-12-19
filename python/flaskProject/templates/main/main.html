@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Выбор таблицы
+{% endblock %}
+
+{% block content %}
+    <h4>Выберете таблицу: </h4>
+    <ul>
+        <li><a style="display: block" href="/students">Студенты</a></li>
+        <li><a style="display: block" href="/universities">Университеты</a></li>
+    </ul>
+    {% if not is_auth %}
+        <a href="/login">Вход</a>
+    {% else %}
+        <a href="/logout">Выйти</a>
+    {% endif %}
+{% endblock %}
